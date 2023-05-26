@@ -7,7 +7,7 @@ class ListsController < ApplicationController
 
   def show
     @bookmark = Bookmark.new
-    # @review = Review.new(list: @list)
+    @review = Review.new(list: @list)
   end
 
   def new
@@ -16,7 +16,6 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-
     if @list.save
       redirect_to list_path(@list)
     else
